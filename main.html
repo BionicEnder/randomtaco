@@ -1,0 +1,67 @@
+<head>
+    <style>
+        #button{
+            size:160px
+        }
+        #seasoning{
+            color:white
+        }
+        #shell{
+            color:white
+        }
+        #condiment{
+            color:white
+        }
+        #meat{
+            color:white
+        }
+        #mixin{
+            color:white
+        }
+        #e{
+            color:springgreen
+        }
+        #f{
+            color:springgreen
+        }
+        #g{
+            color:springgreen
+        }
+        #h{
+            color:springgreen
+        }
+        #n{
+            color:springgreen
+        }
+        body{
+            background-color:rgb(51, 51, 51)
+        }
+    </style>
+    <script>
+        function clicked(){
+            console.log("test")
+            fetch("http://taco-randomizer.herokuapp.com/random/")
+                .then(data=>{return data.json()})
+                .then(res=>{
+                    console.log(res)
+                    var recipe = res.seasoning.recipe
+                    document.getElementById("seasoning").innerText = recipe
+                    document.getElementById("shell").innerText = res.shell.recipe
+                    document.getElementById("condiment").innerText = res.condiment.recipe
+                    document.getElementById("meat").innerText = res.base_layer.recipe
+                    document.getElementById("mixin").innerText = res.mixin.recipe
+                }) 
+        }
+    </script>
+    <button id="button" onclick="clicked()">yo wassup</button>
+    <p0 id="n">=========================================The seasoning for the taco=========================================</p0>
+    <div id="seasoning">seasoning will appear here</div>
+    <p1 id="e">=========================================The shell for the taco=========================================</p1>
+    <div id="shell">shell will appear here</div>
+    <p2 id="f">=========================================The condiment for the taco=========================================</p2>
+    <div id="condiment">condiment will appear here</div>
+    <p3 id="g">=========================================The filling for the taco=========================================</p3>
+    <div id="meat">filling will appear here</div>
+    <p4 id="h">=========================================The toppings for the taco=========================================</p4>
+    <div id="mixin">toppings will appear here</div>
+</head>
